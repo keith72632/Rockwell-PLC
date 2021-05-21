@@ -1,0 +1,3 @@
+Inputs and Outputs
+	Signals come into our PLC from various devices like switches, button and instrumentation.
+PLC decides which actions to take regarding these devices. Signals come in and signals are sent out.Two categories of input signals include discrete, also known as digital signals, and analog signals. 
