@@ -1,0 +1,21 @@
+Overview
+*Steps TO Open Project
+1)open RSLinx, RSLogix and Emulate
+2)Add drivers to RSLinx
+	*ethernet/ip and emulate
+	*in emulate, click rs family
+3)In RSLogix, create new file and verify
+4)Run emulator
+
+Functionality
+*Starts with ladder 2. Default ladder
+*DOn't want all code in ladder
+*Each line is called a rung. Program ends with blank rung
+*Rungs also refered to as subroutine
+*Can jump between subroutines
+*Progams run from top to bottom. Can jum bewteen sub-routines
+*Each time progams runs is called scans
+*Scan times are timed in milliseconds
+*Find scan times under Processor Status tab
+	*Under scan time, tells how long to scan in milliseconds
+*PLCs are very stable
