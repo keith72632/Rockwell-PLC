@@ -1,0 +1,7 @@
+Data Management
+*Data is stored in the Data Files tab. Letter in front of file is refernece to data type.
+*Types of data include: binary, integers and floats
+	*In data file tab, binary will show all the bits, and integer will show the absolute value
+*Analog signals deal with N(integers) and F(floats)
+*Every subroutine has a location in address
+
