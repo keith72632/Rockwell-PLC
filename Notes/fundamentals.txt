@@ -5,3 +5,35 @@ Data Management
 *Analog signals deal with N(integers) and F(floats)
 *Every subroutine has a location in address
 
+Structure 
+    *Ladder logic is essentially just functional programming, but instead of syntax, it uses GUI. There is an entry point(main) with routines inside, and subroutines inside those. Each subroutine, or Rung, move from left to right, and essentially and if/then statement. If the condition on the left is true, execute the right. Left == conditions, right = actions. You can have as many conditions as you want on a branch, but can only have one output. You can also "byspass" conditions with other conditions. 
+    *Branches are kind of like && for condtions
+
+Logical Operators
+*XIC Examine if closed. Looks like open circuit. Doesn't progress through branch unless its closed.
+*XIO Examine if open. Opposite of XIC
+*OTE Output energize. Sets bit to one as long as previous condition is true. This is this prefered method for energizing.
+*OTL Output Latch. When condition is true, energizes bit and stays energized, even if previous condtion turns false. Can only unlatch with OTU
+*OTU unlatches OTL
+**try to online energize bit in one place in file
+*ONS One Shot energizes a bit for a certain amount of time. ex. Button push. Comes after a conditional statement. If true, ONS stays on for one scan. Then becomes false. So will remain true while button is pushed. Once false again, resets. 
+Some processors dont allow you to have mutliple branches right of the ONS
+*OSR One Shot Rising. Available in MOST programming environment. Unlike ONS, this is on the right side which is an output. 
+*OSF On shot falling. Oppostie of OSR. ENergizes when condition becomes false. Also an output. 
+**Use different address for each one shot.
+
+Timers
+*Used for delays
+*TON Timer On. output. Once condition is fullfilled, timer starts. Time base selects unit of measurmenmt(milliseconds, seconds etc). Use seconds mostly. Preset is how many of the predetermined units of time(etc 5 == 5 seconds, if seconds selected). Timer has 3 bits. EN, DN and TT. EN = energized. If condtion is true, timer is energized, and will jump to rung where EN. DN = de-energized. When switch is turned off, timer starts and then starts countdown. Once countdown is complete, Jumps to DN rung. If reset enabled, increments Accumulator. TT = timing. Jumps to TT rung WHILE switch is closed. So when condition is true, EN and TT are energized, but TT only stays energized while countdown. DN will be true while condition is true or countdown finishes. 
+*TOM Timer off. If condition is true, timer is off. Timer is on when condition is false. Also has EN DN and TT bit. 
+*RTO Retentive Timer On. Works the same as TON except continues to count even if condition is turned to false before timer runs out. So TON will reset if condition is suddenly turned to false, while RTO doesn't. RTO retains time after condition is set to fault. 
+
+Counters
+*CTU Count up. Accumulator counts how many times condition is true, and Preset is the goal accumulator is counting towards. Bits CU count up and DN. CU will jump to CU rung on every count up. Counters require reset. Jumps to DN rung after accum meets Preset. Accum counts everytime condition goes from fals to true. So if preset if 10, switch will have to be turned off to on 10 times before DN. 
+*CTD Count down. Same as CTU but counts down
+
+Comparators
+*GRT greater than. LES less than. GEQ greater than or equal to. LEQ less than or equal to. Each has a source A and Source B. A source can be a referce to a bits accumulator or an integer. Ex. Source A = C5:0.ACC and Source B = 5, which means if Source A if GRT, LES, GEQ, LEQ, EQU, or NEQ then condition is met.
+*LIM = limit. A limit test. Has a low limit and high limit. Its basically a GEQ and LEQ. If low limit is higher than high limit, basically switches polarity. So if low limit is lower than high limit, condtion is true if value is inbetween. If low limit is higher than high, condition is true if outside of range. Low limit = needs to be above, High Limit = values needs to be below
+
+
