@@ -36,4 +36,34 @@ Comparators
 *GRT greater than. LES less than. GEQ greater than or equal to. LEQ less than or equal to. Each has a source A and Source B. A source can be a referce to a bits accumulator or an integer. Ex. Source A = C5:0.ACC and Source B = 5, which means if Source A if GRT, LES, GEQ, LEQ, EQU, or NEQ then condition is met.
 *LIM = limit. A limit test. Has a low limit and high limit. Its basically a GEQ and LEQ. If low limit is higher than high limit, basically switches polarity. So if low limit is lower than high limit, condtion is true if value is inbetween. If low limit is higher than high, condition is true if outside of range. Low limit = needs to be above, High Limit = values needs to be below
 
+Mathematical
+*ADD, SUB, MUl etc.
+*Don't really need to use constants
+*Two sources. One is a memory location
+*Result stored in destination
+*CPT means compute. This is where you can use complicated expressions. 
 
+SCP Scale with Parameters
+*Useful with analog signals. 
+*Essentially it takes a value within a certain scale and adjusts with for anothert.
+*Ex. if input is 2 and the input min and max are 0-10, and the scaled min/max is
+0-100, the output would be the input(2) adjusted on the new scale, which would 
+be 20
+*a better real world example would be:
+	*on a input min max of 4-20ma, input is 6ma. This input needs to be 
+	translated to a thermometer with a range of 0-320
+
+MOV move instruction
+*Moves value from one memory register from another. Basically copies. Moves 
+source to destination. 
+*ex. MOV source = 20 to Dest T4:0.PRE
+	*This will move 20 into preset of T4:0, which is a timer
+*Also use this for recasting. ex. N7:0 to F8:0
+
+JMP jump LBL label
+*Basicallty a goto statment
+*cant execute rung with label unless jumped to
+
+PID Proportional Inegral Derivative Control Loops
+*Imperative for senstive analog readings
+*Has process and control varaible. what pid does is try to adjust control to process variable. Used for things that need to be extremly accurate. Like motor drives. Emulators won't ususally run PID.

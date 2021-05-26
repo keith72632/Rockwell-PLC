@@ -1,0 +1,35 @@
+Program Setup
+*Create ne project and rename ladder two to main
+*configure plc by clicking on configure tab.
+*in cofigure tab, configure the frist device
+***then add analog 4 channel input
+	*change input range to 4-20ma
+	*change data format
+	*raw is converted into range of 4000- 20000 which is 14 bit signal
+	*scale for PID range is 0 to 16483
+*Look through the list of devices supported and configure
+
+Scaling and Resoltuion
+**scale
+2-bit 2^2 4 levels
+4-bit 2^4 16 levels
+6-bit 2^6 64 levels
+8-bit 2^8 256 levels
+10-bit 2^10 1024 levels
+12-bit 2^12 4096 levels
+14-bit 2^14 16384
+16-bit 2^16 65536
+32-bit 2^32 4.2 billion levels
+64-bit 2^64 18.4 quintillion levels
+
+*Resoltuion is essentially how many values can be extracted out of certain range
+*100 == 3 levels. 100.00 = 5 levels
+*When 4-20ma is converted to 4000 - 20000(which is 16000), needs atleast 16,000
+levels of resolution. WHich is 14 bit. 
+
+Function files
+*data files hold memory, program files hold ladder logic
+*function files are specific to each product
+*HSC high speed counter. COnfigured to recieve and count high frequency inputs
+*STI Selectable timed interrupt. allows user to designate one of the program files as being scanned more often or called out of sequence. basically an interrupt.
+*RTC real time clock. Older plc need a RTC module added, but new versions have it built in
