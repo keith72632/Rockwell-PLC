@@ -33,3 +33,8 @@ Function files
 *HSC high speed counter. COnfigured to recieve and count high frequency inputs
 *STI Selectable timed interrupt. allows user to designate one of the program files as being scanned more often or called out of sequence. basically an interrupt.
 *RTC real time clock. Older plc need a RTC module added, but new versions have it built in
+
+Program Files
+*Starts at ladder two. Rename to main. Entry point
+*Right click on profile files and click add new. Then select number
+*Name program something intuitive, like alarms, IO or controls

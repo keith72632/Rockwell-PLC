@@ -1,0 +1,8 @@
+Input and Output Programming
+*COnfigure modules. Ex. 8-input 10/30 VDC and 8-output relay
+*In cofiguartion tab, number to the left is slot number. slot 0 is plc
+*after new instruction created, format as follows: I:1/0. I for input, 1 for module #1 or "slot" and 0 for channel 0
+*Prompted to enter info. Description is a comment, symbol is used for HMI
+*outut on bit level. B3:0/0, First bit of first word in B3
+*description yellow, symbol green
+*Use single bit as best practice. Segragate IO

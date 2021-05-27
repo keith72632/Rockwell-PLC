@@ -67,3 +67,5 @@ JMP jump LBL label
 PID Proportional Inegral Derivative Control Loops
 *Imperative for senstive analog readings
 *Has process and control varaible. what pid does is try to adjust control to process variable. Used for things that need to be extremly accurate. Like motor drives. Emulators won't ususally run PID.
+
+JSR jump to subroutine 
