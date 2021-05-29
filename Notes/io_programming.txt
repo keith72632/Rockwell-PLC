@@ -6,3 +6,5 @@ Input and Output Programming
 *outut on bit level. B3:0/0, First bit of first word in B3
 *description yellow, symbol green
 *Use single bit as best practice. Segragate IO
+
+*I3:0/1 is bit level, I3:0.0 is word level

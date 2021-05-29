@@ -1,0 +1,12 @@
+Analog IO
+/ is bit level, . is word level
+*Must always give symbol when using I:x because it isnt refereing to bit directly
+
+Analog control process
+LL = low-low
+L = low
+H = high
+HH = high high
+
+for example, heater will kick on when temp reaches low, and kick off when 
+reaches high. if plc is telling heater to run but temp is still dropping and hits LL, then alaram needs to be sounded. same with hh. if plc tells heater to turn off but reaches hh, then sound alarm. This could happen when a relay sticks.
