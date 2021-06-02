@@ -1,0 +1,32 @@
+Process Logic
+	Piping and Instrument Diagram PandID
+This is the physical components. Should have a startup map that explains start
+-up cycles. 
+Hand off/auto(HOA control)
+	Used for digital and discrete devices. Hand blower could energize on
+button press, or only run when held down. three inputs, one for hand, one for
+off and one for auto. 
+
+Project 004
+	in digital io, associate inputs with bits in data file. DOnt refer to
+inputs and outputs directly. One shot for button presses so a single button pres
+only runs instruction one time
+
+**steps
+	*create file for digital io
+	*create an input for each condition, off hand and auto with I:0/x, then
+on same rung OTE a different bit for each with B3:0/x
+	*then create an XIC for blower at different bit than the previous 3 
+conditons, and on same run create an output at O:2/0 which is module or channel
+2.
+	*create file for controls
+	*map three rungs with XIC commands from digital IO file, and place a 
+ONS after each to prevent multiple scans while button being pressed.
+	*create N7 MOV condition on each rung for inputs, and use 0 for off
+1 for hand and 2 for auto.
+	*on rung one with HAND XIC, place NEQ with source b as 2 to confirm that
+the process is not already running in hand
+	*These MOV statements should be mapped to integer called BLOWER_STATE
+	*On new rung in controls, check if integer is equal to 1 or 2 then 
+energize bit corresponding with blower bit, which is the same as the XIC in 
+digital IO before blower output. Blower output is O:2/0
