@@ -1,0 +1,18 @@
+Tank Level Control
+    *One pump and one valve. L and H for pump control. LL and HH is for alarms.
+    *Modules used: 8-input 10/30 VDC and 8-output relay
+    *Map LL, L , H and HH to and input module. Then assign an output bit to each
+    *Assign valve and pump each to a bit, then each an output channel.
+
+Controls
+    *Assign L level and H level each a rung and in a bit. Then Assign Pump and
+Valve their own rung and output bit. 
+    *Since there are only two modes, pump on(L level) and pump off(H level),
+can use Bit or Integer as condition. 
+    *Water levels will rock back and forth, so use TON after L switch. DN, or
+down, will energize of bit used as boolean(B3:0/6)
+    *To prevent pump from kicking off after back above L again, branch around
+condtion for FILL_MODE rung with the same bit as the output bit. 
+    *Create another TON for H switch. Use this T4 XIO on the same branch that
+circumvents the FILL_MODE delay. Use the output of this rung to XIC Bit used
+as boolean. If 1 or XIC, the PUMP, if 0 or XIO then drain
