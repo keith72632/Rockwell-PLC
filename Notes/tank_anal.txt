@@ -1,0 +1,3 @@
+Analog Tank Controls
+*4 channel input
+**4ma to 20ma
