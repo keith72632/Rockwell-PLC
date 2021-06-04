@@ -1,0 +1,20 @@
+Heater Digital
+    Two switches. High temp and low temp. Assingn each input a bit. One output, which will be heater on. Assign it a bit
+as well. Use low temp assigned bit to enegerize heater. Create a ciruit around this instrucution with the energized heater
+bit as a condition, to keep it running after it hits the low level. Use an XIO in condition loop that is linked to the 
+high level sensor to shut heater off.
+
+Heater Analog
+    4 channel analog input and output. Configure channel to 4 to 20 and PID. SCP input channel. input min and max 0-16383.
+Output n7:0. Next configure PID. Create a PID file. Assign Process control, which in the output from previous SPC. Assign 
+control variable to integer N7:1. Set input output and time mode. Time mode == TIMED. Set scaled set point to temp wanted to
+maintain. Setpoint min and max 0 to 212. In output, control output is only used if in manual. output max and min are 
+percentages and should be set to 0 and 100%
+
+PID Setup screen
+    Time Mode = STI and Timed
+    Scaled Set Points = Point to maintain (ex. temp)
+    Setpoint max = High Point reached (ex. high temp)
+    Setpoint Min = Low point reacged (ex. Low temp)
+    Out put min and max are percentage = 0 to 100% of range
+    **Click Help Button in setup screen for more info

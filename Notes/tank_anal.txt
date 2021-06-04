@@ -1,3 +1,16 @@
 Analog Tank Controls
 *4 channel input
 **4ma to 20ma
+Scaled to PID, so in SCP, input min is 0 and input max is 16383
+Level sensors will usually have the option to calibrate to a percent. Because of this, SCP out can be and Interger
+instead of a float
+
+Use LES and GRT to compare level in N7:0. Then use TON for 10 seconds above or below level. 
+
+Use a Bit or Integer as a boolean for fill
+
+Link TON to a condition DN for fill and drain. Fill = 1 drain = 0. If timer for fill is up, energize boolean. Branch around
+t4:0/dn with an XIC that is the same bit as boolean. This works as a latch for fill. In front of this XIC, put a XIO that
+links to the timer for the drain. That way if the drain is open, pump won't start to fill tank. 
+
+Use boolean to get state. if one, energize bit that turns pump on. If 0, open valve
