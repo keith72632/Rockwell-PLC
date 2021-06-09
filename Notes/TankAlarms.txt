@@ -1,0 +1,34 @@
+Tank Alarm System
+	Water tank with pump to fill, and valve to drain. Analog input Level 
+sensor to cycle pump and valve. HH and LL alarms. 
+Modules:
+	*8-input 10/30 VDC
+	*8-output Relay
+	*Analog 2 Chan input, 2 Chan output. Scaled to PID
+Three Files: Alarms, Io, Controls
+
+IO
+1.Assign valve to bit and output on first rung
+2.Assign pump to bit and output on second rung
+3.Analog input SCP on third rung for level sensor. Assign output to N7:0
+
+Controls
+1.Output from SCP input compared with GRT and LES to control level. 
+2.Use TON to measure 10 seconds above or below level
+3.Use timer DN for pump(LES) to set a bit to one. Lock open with rung loop
+  and put XIO for timer on the valve in front
+4.Use boolean bit from above to energize pump and valve. Bit HH and LL alarm 
+  XIO in front
+
+Alarms
+1. Compare integer from SCB output with GRT and LES for HH and LL alarms
+2. TON after comparisons with rungs around timer. In Rung, XIC the timer dn
+    bit to keep energized, and OSR after.
+3.Create new rung for each (HH and LL). XIC from timer DN with rung around. In 
+  rung around, use output bit of that rung to keep close, with another level
+  compariosn of N7:0 in front. This comparison will keep this alarm on until 
+  above or below certain level. 
+4. Create another rung for each HH and LL with XIC of the OSR output bits. 
+   This rung will output to another bit that will be the notify bit
+5. Loop around input condition(which is the OSR output) with an XIC for notify
+   bit and an XIO to a bit tied to an alarm acknowledge switch
