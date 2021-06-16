@@ -1,0 +1,6 @@
+Alarms - Stop processes
+Notification - Brings attention to a problem
+
+Consideration
+1. Always safety. Alarms that are absolutely necessary.
+	*not everything needs a hh or ll

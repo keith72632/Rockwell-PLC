@@ -18,3 +18,8 @@ PID Setup screen
     Setpoint Min = Low point reacged (ex. Low temp)
     Out put min and max are percentage = 0 to 100% of range
     **Click Help Button in setup screen for more info
+
+Alarms and Notifications
+	Alarms should have a delay on them. The delay should then have a rung around it and latch it open using its DN bit and
+a OSR. This will keep the alarm on even after it drops below the alarm level. On another rung, XIC the DN bit from the timer and
+energize a bit. Use that bit to latch the DN. Create another branch for Alarm resets. Alarm resets should be XIO for a button
